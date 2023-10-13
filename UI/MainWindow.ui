@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>913</width>
+    <height>907</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>numerical methods</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="gridWidget_2" native="true">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>610</y>
+      <width>901</width>
+      <height>231</height>
+     </rect>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgb(113, 113, 113);</string>
+    </property>
+    <layout class="QGridLayout" name="information_layout" columnstretch="1,0,0,0,0">
+     <item row="1" column="0">
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="horizontalSpacing">
+        <number>7</number>
+       </property>
+       <item row="1" column="1">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>[</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_11">
+           <property name="text">
+            <string>0</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_12">
+           <property name="text">
+            <string>,</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="X_end"/>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_4">
+           <property name="text">
+            <string>]</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>X ∈ </string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <spacer name="verticalSpacer_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>Нач. шаг:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <widget class="QLineEdit" name="step_start"/>
+       </item>
+      </layout>
+     </item>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label_7">
+       <property name="text">
+        <string>Ввод начальных условий</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QLabel" name="label_8">
+       <property name="text">
+        <string>Настройка параметров</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="4">
+      <widget class="QLabel" name="label_10">
+       <property name="text">
+        <string>Выходные данные программы</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="3">
+      <layout class="QVBoxLayout" name="parameters_layout">
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <item>
+          <widget class="QCheckBox" name="step_mode">
+           <property name="text">
+            <string>Контроль лок. погрешности</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <property name="tristate">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="1">
+      <layout class="QGridLayout" name="gridLayout_5">
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="step_control"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_24">
+         <property name="text">
+          <string>Максимальное число итераций</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="max_num_iter"/>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_14">
+         <property name="text">
+          <string>Контроль погрешности:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1">
+        <spacer name="verticalSpacer_4">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </item>
+     <item row="1" column="2">
+      <widget class="Line" name="line">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="Line" name="line_2">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="4">
+      <layout class="QVBoxLayout" name="extra_info_layout"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>901</width>
+      <height>561</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>График</string>
+     </attribute>
+     <widget class="QWidget" name="plot_widget_1" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>891</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(148, 148, 148);</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Таблица</string>
+     </attribute>
+     <widget class="QToolBox" name="toolBox">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>901</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="page_1">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>901</width>
+         <height>477</height>
+        </rect>
+       </property>
+       <property name="accessibleName">
+        <string/>
+       </property>
+       <attribute name="label">
+        <string>таблица для V</string>
+       </attribute>
+       <widget class="QTableWidget" name="info_table">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>891</width>
+          <height>471</height>
+         </rect>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>426</width>
+          <height>454</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>10000</width>
+          <height>9999999</height>
+         </size>
+        </property>
+        <property name="autoScroll">
+         <bool>true</bool>
+        </property>
+        <property name="autoScrollMargin">
+         <number>16</number>
+        </property>
+        <property name="verticalScrollMode">
+         <enum>QAbstractItemView::ScrollPerPixel</enum>
+        </property>
+        <property name="horizontalScrollMode">
+         <enum>QAbstractItemView::ScrollPerPixel</enum>
+        </property>
+        <column>
+         <property name="text">
+          <string>i</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Xi</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Vi</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>V'i</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>V2i</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Vi-V2i</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>ОЛП</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>h_i</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>C1</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>C2</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Ui</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>|Ui-Vi|</string>
+         </property>
+        </column>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>100</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <attribute name="label">
+        <string>таблица для V'</string>
+       </attribute>
+       <widget class="QTableWidget" name="info_table_V_dot">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>891</width>
+          <height>471</height>
+         </rect>
+        </property>
+       </widget>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>График ФП</string>
+     </attribute>
+     <widget class="QWidget" name="plot_widget_2" native="true">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>891</width>
+        <height>531</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(148, 148, 148);</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_4">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>560</y>
+      <width>851</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QPushButton" name="plot_button">
+       <property name="text">
+        <string>Построить</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="delete_plot">
+    <property name="geometry">
+     <rect>
+      <x>850</x>
+      <y>560</y>
+      <width>51</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>delete</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>913</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>Помощь</string>
+    </property>
+   </widget>
+   <addaction name="menu"/>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>X_end</tabstop>
+  <tabstop>step_start</tabstop>
+  <tabstop>step_control</tabstop>
+  <tabstop>max_num_iter</tabstop>
+  <tabstop>plot_button</tabstop>
+  <tabstop>info_table</tabstop>
+  <tabstop>tabWidget</tabstop>
+  <tabstop>step_mode</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
