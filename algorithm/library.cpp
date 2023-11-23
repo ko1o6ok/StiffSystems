@@ -147,8 +147,8 @@ extern "C" __declspec(dllexport) void run_rigid(int Nmax,double b, double eps_b,
                 max_OLP = OLP;
             // Принимаем следующую точку
             x = x_current;
-            //v = v_current;
-            v = v_help;
+            v = v_current;
+            //v = v_help;
             auto sol = anal_sol(x); // Аналитическое решение в этой точке
             diff  = euclid_norm(v,sol);
             if(diff > max_anal_diff)

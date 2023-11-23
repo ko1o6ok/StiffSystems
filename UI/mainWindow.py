@@ -4,6 +4,8 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
     NavigationToolbar2QT as NavigationToolbar
 from matplotlib.figure import Figure
 
+from UI.infoWindow import UI_infoWindow
+
 import ctypes
 import os
 import time
@@ -49,8 +51,16 @@ class UI_mainWindow(QMainWindow):
         self.plot_widget_1.plot.set_xlabel("x")
         self.plot_widget_1.plot.set_ylabel("Решения")
 
-        self.plot_widget_2.plot.set_xlabel("V")
-        self.plot_widget_2.plot.set_ylabel("V' ")
+        self.plot_widget_2.plot.set_xlabel("V1")
+        self.plot_widget_2.plot.set_ylabel("V2")
+
+        # настройка включения второго окна
+        self.info_button.triggered.connect(lambda: self.info_window("my_info.pdf"))
+
+    def info_window(self,file_name):
+        self.i_window = QMainWindow()
+        self.i_window.ui = UI_infoWindow(file_name)
+        self.i_window.ui.show()
 
     def clear_plots(self):
         self.plt.cla()
@@ -66,8 +76,8 @@ class UI_mainWindow(QMainWindow):
         self.plot_widget_1.plot.set_xlabel("x")
         self.plot_widget_1.plot.set_ylabel("Решения")
 
-        self.plot_widget_2.plot.set_xlabel("V")
-        self.plot_widget_2.plot.set_ylabel("V' ")
+        self.plot_widget_2.plot.set_xlabel("V1")
+        self.plot_widget_2.plot.set_ylabel("V2")
 
     def toolBar_changing(self, index):  # изменение привязки тулбара
         self.removeToolBar(self.plot_toolBar)
@@ -121,6 +131,7 @@ class UI_mainWindow(QMainWindow):
         s_0 = 13.0
         h0 = float(self.get_start_step())  # Начальный шаг
         eps = float(self.get_step_control())  # Параметр контроля шага
+        eps_b = float(self.get_border_control()) # Параметр контроля выхода на правую границу
 
         Nmax = int(self.get_num_max_iter())  # Максимальное число итераций
         # a = float(self.get_param_a())  # параметр а для осн. задачи - 2
@@ -194,7 +205,7 @@ class UI_mainWindow(QMainWindow):
                             ctypes.c_double,
                             ctypes.c_double, ctypes.c_double]
         my_func.restype = ctypes.c_void_p
-        my_func(Nmax, X_end, 0.01, eps, h0)
+        my_func(Nmax, X_end, eps_b, eps, h0)
 
         self.clear_table(self.info_table_V_dot)
 
@@ -229,11 +240,11 @@ class UI_mainWindow(QMainWindow):
         self.plt_PS.plot(U_arr, dotU_arr, label="Фазовая кривая")
         self.plt_PS.legend(loc="upper right")
 
-        self.plt.plot(X_arr, V_arr, label="Числ. решение (V)")
-        self.plt.scatter(X_start, w_0,label="Старт. точка (V)")  # scatter - построение точечного графика. В данном случае просто ставит точку (x0,u0)
+        self.plt.plot(X_arr, V_arr, label="Числ. решение (V1)")
+        self.plt.scatter(X_start, w_0,label="Старт. точка (V1)")  # scatter - построение точечного графика. В данном случае просто ставит точку (x0,u0)
 
-        self.plt.plot(X_arr, [s_0]+dotU_arr, label="Числ. решение (V')")
-        self.plt.scatter(X_start, s_0,label="Старт. точка (V')")
+        self.plt.plot(X_arr, [s_0]+dotU_arr, label="Числ. решение (V2)")
+        self.plt.scatter(X_start, s_0,label="Старт. точка (V2)")
 
         self.plt.set_xlim(auto=True)
         self.plt.set_ylim(auto=True)
@@ -259,6 +270,9 @@ class UI_mainWindow(QMainWindow):
 
     def get_step_control(self):
         return self.step_control.text()
+
+    def get_border_control(self):
+        return self.border_control.text()
 
     # def get_task(self):
     #     return self.task_selection_box.currentIndex(), self.task_selection_box.currentText()
@@ -288,4 +302,6 @@ class UI_mainWindow(QMainWindow):
 
     def get_num_max_iter(self):
         return self.max_num_iter.text()
+
+
 
